@@ -1,0 +1,58 @@
+#container{
+    height: 90%;
+    width: 90%;
+    background-color: rgb(224, 218, 218);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#formular{
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+
+input{
+    margin: 8px 0;
+    padding: 5px 5px;
+}
+
+#map{
+    width: 60%;
+    height: 400px;
+}
+
+#calcul-si-afisare{
+    text-align: center;
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+#afis-distanta, #afis-durata{
+    display: inline-block;
+    padding: 0 20px 20px 20px;
+}
+
+#finalizare{
+    text-align: center;
+    font-size: 20px;
+}
+
+#afis-pret{
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+#buton{
+    width: 200px;
+    height: 30px;
+    background-color: green;
+    font-size: 15px;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Aplicatie</title>
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="container">
+            <div id="formular">
+                <form>
+                    <label for="nume">Nume client:</label>
+                    <input type="text" id="nume" name="numeClient">
+
+                    <label for="email">Email client:</label>
+                    <input type="text" id="email" name="emailClient"><br>
+
+                    <label for="adresaPickup">De la adresa:</label>
+                    <input type="text" id="adresaPickup" name="adresaPickup">
+
+                    <label for="adresaDropOff">Pana la adresa:</label>
+                    <input type="text" id="adresaDropOff" name="adresaDropOff">
+                </form>
+            </div>
+        
+            <div id="map"></div>
+
+            <div id="calcul-si-afisare">
+                <div id="afis-distanta">
+                    
+                </div>
+                <div id="afis-durata">
+                   
+                </div>
+            </div>
+
+            <div id="finalizare">
+                <label for="masini">Alege o masina:</label>
+                <select name="masini" id="masini">
+                    <option value="masina1">Masina 1</option>
+                    <option value="masina2">Masina 2</option>
+                    <option value="masina3">Masina 3</option>
+                </select>
+                <br><br>
+                <button id="buton" onclick="calculPret()">Calculare pret</button>
+            </div>
+
+            <div id="afis-pret">
+
+            </div>
+        </div>
+
+    <script>
+            document.getElementById("afis-distanta").innerHTML = 'Distanta: ' + 5 + 6 +'km';
+            document.getElementById("afis-durata").innerHTML = 'Durata: ' + 5 + 9 +'h';
+
+        function calculPret(){
+            var e = document.getElementById("masini");
+            var result = e.options[e.selectedIndex].text;
+
+            if(result === 'Masina 1'){
+                document.getElementById("afis-pret").innerHTML = 'Pret: ' + 10 +' lei';
+            }
+            else
+            if(result === 'Masina 2'){
+                document.getElementById("afis-pret").innerHTML = 'Pret: ' + 20 +' lei';
+            } 
+            else
+            if(result === 'Masina 3'){
+                document.getElementById("afis-pret").innerHTML = 'Pret: ' + 30 +' lei';
+            }  
+        }
+
+       
+
+        function activatePlacesSearch(){
+            var input = document.getElementById('adresaPickup');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+        
+            var input2 = document.getElementById('adresaDropOff');
+            var autocomplete2 = new google.maps.places.Autocomplete(input2);
+        }
+      
+        function initMap() {
+            var location = {lat: 47.158455, lng: 27.601442};
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 8,
+                center: location
+            });
+            activatePlacesSearch();
+        }
+
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkiGv2h1IOQCgr2R-S48Gb8jjbxg55v8w&libraries=places&callback=initMap"></script>
+
+    </body>
+</html>
